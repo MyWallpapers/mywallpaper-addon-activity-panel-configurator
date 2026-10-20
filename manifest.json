@@ -1,0 +1,600 @@
+{
+  "runtime": "native-v1",
+  "name": "Panneau d’activité",
+  "description": "Une île d’activité personnelle : horloge, batterie, minuteur et état système. Le média dépend d’un fournisseur connecté.",
+  "version": "0.1.0",
+  "deviceSettingsVersion": "1",
+  "settings": [
+    {
+      "id": "panel",
+      "type": "section",
+      "label": "Panneau et emplacement",
+      "defaultCollapsed": false
+    },
+    {
+      "id": "enabled",
+      "type": "boolean",
+      "label": "Afficher le panneau",
+      "default": true,
+      "scope": "device",
+      "parent": "panel"
+    },
+    {
+      "id": "mode",
+      "type": "select",
+      "label": "Ouverture",
+      "default": "automatic",
+      "scope": "device",
+      "parent": "panel",
+      "options": [
+        {
+          "value": "automatic",
+          "label": "Au survol ou au clic"
+        },
+        {
+          "value": "compact",
+          "label": "Réduit au démarrage"
+        },
+        {
+          "value": "expanded",
+          "label": "Développé au démarrage"
+        }
+      ]
+    },
+    {
+      "id": "monitor",
+      "type": "select",
+      "label": "Écran",
+      "default": "primary",
+      "scope": "device",
+      "parent": "panel",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Principal"
+        },
+        {
+          "value": "pointer",
+          "label": "Celui du pointeur au démarrage"
+        },
+        {
+          "value": "index",
+          "label": "Choisir un numéro"
+        }
+      ]
+    },
+    {
+      "id": "monitorIndex",
+      "type": "range",
+      "label": "Numéro de l’écran (1 = premier)",
+      "default": 1,
+      "scope": "device",
+      "parent": "panel",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "showIf": {
+        "setting": "monitor",
+        "equals": "index"
+      }
+    },
+    {
+      "id": "anchor",
+      "type": "select",
+      "label": "Position",
+      "default": "top-center",
+      "scope": "device",
+      "parent": "panel",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Haut gauche"
+        },
+        {
+          "value": "top-center",
+          "label": "Haut centre"
+        },
+        {
+          "value": "top-right",
+          "label": "Haut droite"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bas gauche"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bas centre"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bas droite"
+        }
+      ]
+    },
+    {
+      "id": "edgeMargin",
+      "type": "range",
+      "label": "Marge du bord (px adaptés au zoom)",
+      "default": 16,
+      "scope": "device",
+      "parent": "panel",
+      "min": 0,
+      "max": 160,
+      "step": 1
+    },
+    {
+      "id": "compactWidth",
+      "type": "range",
+      "label": "Largeur réduite (px)",
+      "default": 300,
+      "scope": "device",
+      "parent": "panel",
+      "min": 200,
+      "max": 640,
+      "step": 1
+    },
+    {
+      "id": "expandedWidth",
+      "type": "range",
+      "label": "Largeur développée (px)",
+      "default": 420,
+      "scope": "device",
+      "parent": "panel",
+      "min": 280,
+      "max": 800,
+      "step": 1
+    },
+    {
+      "id": "compactHeight",
+      "type": "range",
+      "label": "Hauteur réduite (px)",
+      "default": 56,
+      "scope": "device",
+      "parent": "panel",
+      "min": 44,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "topmost",
+      "type": "boolean",
+      "label": "Garder au-dessus des fenêtres",
+      "default": true,
+      "scope": "device",
+      "parent": "panel"
+    },
+    {
+      "id": "taskSwitcher",
+      "type": "boolean",
+      "label": "Accès clavier depuis Alt+Tab",
+      "default": true,
+      "scope": "device",
+      "parent": "panel",
+      "description": "Ajoute une entrée du panneau à la barre des tâches et à Alt+Tab. Désactivez-la pour une île discrète accessible au clic."
+    },
+    {
+      "id": "look",
+      "type": "section",
+      "label": "Fond et détails",
+      "defaultCollapsed": false
+    },
+    {
+      "id": "fill",
+      "type": "select",
+      "label": "Fond",
+      "default": "gradient",
+      "scope": "device",
+      "parent": "look",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Uni"
+        },
+        {
+          "value": "gradient",
+          "label": "Dégradé"
+        }
+      ]
+    },
+    {
+      "id": "colorStart",
+      "type": "color",
+      "label": "Couleur de départ",
+      "default": "#18243AFF",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true
+    },
+    {
+      "id": "colorEnd",
+      "type": "color",
+      "label": "Couleur d’arrivée",
+      "default": "#33244FFF",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true,
+      "showIf": {
+        "setting": "fill",
+        "equals": "gradient"
+      }
+    },
+    {
+      "id": "textColor",
+      "type": "color",
+      "label": "Texte",
+      "default": "#F4F6FFFF",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true
+    },
+    {
+      "id": "mutedColor",
+      "type": "color",
+      "label": "Texte secondaire",
+      "default": "#BBC4D9FF",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true
+    },
+    {
+      "id": "accentColor",
+      "type": "color",
+      "label": "Accent et progression",
+      "default": "#76DFC5FF",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true
+    },
+    {
+      "id": "borderColor",
+      "type": "color",
+      "label": "Contour",
+      "default": "#99AFD166",
+      "scope": "device",
+      "parent": "look",
+      "alpha": true
+    },
+    {
+      "id": "backgroundOpacity",
+      "type": "range",
+      "label": "Opacité du fond (%)",
+      "default": 94,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "gradientAngle",
+      "type": "range",
+      "label": "Direction du dégradé (degrés)",
+      "default": 20,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 360,
+      "step": 1,
+      "showIf": {
+        "setting": "fill",
+        "equals": "gradient"
+      }
+    },
+    {
+      "id": "cornerRadius",
+      "type": "range",
+      "label": "Coins arrondis (px)",
+      "default": 26,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 48,
+      "step": 1
+    },
+    {
+      "id": "borderWidth",
+      "type": "range",
+      "label": "Contour (px)",
+      "default": 1,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "shadow",
+      "type": "range",
+      "label": "Ombre douce (px)",
+      "default": 12,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 24,
+      "step": 1
+    },
+    {
+      "id": "reflection",
+      "type": "range",
+      "label": "Reflet supérieur (%)",
+      "default": 12,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    {
+      "id": "grain",
+      "type": "range",
+      "label": "Grain de surface (%)",
+      "default": 3,
+      "scope": "device",
+      "parent": "look",
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "fontSize",
+      "type": "range",
+      "label": "Taille du texte (px)",
+      "default": 15,
+      "scope": "device",
+      "parent": "look",
+      "min": 12,
+      "max": 22,
+      "step": 1
+    },
+    {
+      "id": "content",
+      "type": "section",
+      "label": "Contenu et règles",
+      "defaultCollapsed": false
+    },
+    {
+      "id": "compactSource",
+      "type": "select",
+      "label": "Contenu réduit",
+      "default": "auto",
+      "scope": "device",
+      "parent": "content",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Priorité selon le contexte"
+        },
+        {
+          "value": "clock",
+          "label": "Horloge"
+        },
+        {
+          "value": "battery",
+          "label": "Batterie"
+        },
+        {
+          "value": "timer",
+          "label": "Minuteur"
+        },
+        {
+          "value": "system",
+          "label": "Mémoire système"
+        },
+        {
+          "value": "media",
+          "label": "Média (fournisseur requis)"
+        }
+      ]
+    },
+    {
+      "id": "showClock",
+      "type": "boolean",
+      "label": "Horloge",
+      "default": true,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "showBattery",
+      "type": "boolean",
+      "label": "Batterie",
+      "default": true,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "showTimer",
+      "type": "boolean",
+      "label": "Minuteur",
+      "default": true,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "showSystem",
+      "type": "boolean",
+      "label": "Mémoire et CPU",
+      "default": true,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "showMedia",
+      "type": "boolean",
+      "label": "État du fournisseur média",
+      "default": false,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "lowBattery",
+      "type": "range",
+      "label": "Priorité batterie en dessous de (%)",
+      "default": 20,
+      "scope": "device",
+      "parent": "content",
+      "min": 5,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "idleContent",
+      "type": "select",
+      "label": "Sans activité prioritaire",
+      "default": "clock",
+      "scope": "device",
+      "parent": "content",
+      "options": [
+        {
+          "value": "clock",
+          "label": "Horloge"
+        },
+        {
+          "value": "system",
+          "label": "Mémoire système"
+        }
+      ]
+    },
+    {
+      "id": "clockSeconds",
+      "type": "boolean",
+      "label": "Secondes sur l’horloge",
+      "default": false,
+      "scope": "device",
+      "parent": "content"
+    },
+    {
+      "id": "clockFormat",
+      "type": "select",
+      "label": "Format de l’horloge",
+      "default": "24",
+      "scope": "device",
+      "parent": "content",
+      "options": [
+        {
+          "value": "24",
+          "label": "24 heures"
+        },
+        {
+          "value": "12",
+          "label": "12 heures"
+        }
+      ]
+    },
+    {
+      "id": "timer",
+      "type": "section",
+      "label": "Minuteur personnel",
+      "defaultCollapsed": false
+    },
+    {
+      "id": "timerMinutes",
+      "type": "range",
+      "label": "Durée (minutes)",
+      "default": 25,
+      "scope": "device",
+      "parent": "timer",
+      "min": 1,
+      "max": 180,
+      "step": 1
+    },
+    {
+      "id": "autoExpandTimer",
+      "type": "boolean",
+      "label": "Développer à la fin du minuteur",
+      "default": true,
+      "scope": "device",
+      "parent": "timer"
+    },
+    {
+      "id": "quickActions",
+      "type": "boolean",
+      "label": "Boutons minuteur et remise à zéro",
+      "default": true,
+      "scope": "device",
+      "parent": "timer"
+    },
+    {
+      "id": "behaviour",
+      "type": "section",
+      "label": "Comportement et accessibilité",
+      "defaultCollapsed": false
+    },
+    {
+      "id": "fullscreen",
+      "type": "select",
+      "label": "En plein écran sur cet écran",
+      "default": "hide",
+      "scope": "device",
+      "parent": "behaviour",
+      "options": [
+        {
+          "value": "hide",
+          "label": "Masquer"
+        },
+        {
+          "value": "compact",
+          "label": "Réduire"
+        },
+        {
+          "value": "show",
+          "label": "Garder visible"
+        }
+      ]
+    },
+    {
+      "id": "reduceMotion",
+      "type": "boolean",
+      "label": "Réduire les animations",
+      "default": false,
+      "scope": "device",
+      "parent": "behaviour",
+      "description": "La préférence Windows est aussi respectée. Les couleurs et dimensions sont conservées."
+    },
+    {
+      "id": "animationMs",
+      "type": "range",
+      "label": "Durée d’ouverture (ms)",
+      "default": 180,
+      "scope": "device",
+      "parent": "behaviour",
+      "min": 0,
+      "max": 600,
+      "step": 1
+    },
+    {
+      "id": "respectContrast",
+      "type": "boolean",
+      "label": "Respecter le contraste élevé de Windows",
+      "default": true,
+      "scope": "device",
+      "parent": "behaviour"
+    },
+    {
+      "id": "showDiagnostics",
+      "type": "boolean",
+      "label": "État et erreurs des sources",
+      "default": true,
+      "scope": "device",
+      "parent": "behaviour"
+    }
+  ],
+  "native": {
+    "companion": {
+      "runtime": "process-v2",
+      "entries": {
+        "windows-x86_64": "native/out/windows-x86_64/companion.exe"
+      }
+    }
+  },
+  "services": {
+    "requires": {
+      "audio": {
+        "contract": "a18/audio-system",
+        "version": 1,
+        "optional": true
+      }
+    }
+  }
+}

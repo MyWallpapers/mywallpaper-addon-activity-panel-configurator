@@ -1,0 +1,7 @@
+/.mywallpaper/
+/native/out/
+/build/
+/docs/receipts/
+/docs/private/
+*.user
+*.pdb

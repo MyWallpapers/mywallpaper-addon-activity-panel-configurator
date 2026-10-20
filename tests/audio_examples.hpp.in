@@ -1,0 +1,2 @@
+#pragma once
+namespace activity { inline constexpr char audioExamples[] = R"A18example(@A18_EXAMPLES@)A18example"; }

@@ -1,0 +1,19 @@
+{
+  "version": 6,
+  "vendor": {
+    "mywallpaper.com/native-development/1": {
+      "portableContracts": true,
+      "engine": "none",
+      "windowsFixtures": true
+    }
+  },
+  "configurePresets": [
+    {
+      "name": "mw-development",
+      "binaryDir": "${sourceDir}/.mywallpaper/component-build",
+      "cacheVariables": {
+        "MW_NATIVE_DEVELOPMENT_MODULE": "${sourceDir}/../MyWallpaper/tools/dev/native/NativeDevelopment.cmake"
+      }
+    }
+  ]
+}

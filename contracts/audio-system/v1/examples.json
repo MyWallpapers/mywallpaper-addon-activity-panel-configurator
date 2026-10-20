@@ -1,0 +1,309 @@
+{
+  "audioState": {
+    "kind": "audio-system.state",
+    "topic": "audio",
+    "generation": "synthetic-generation-1",
+    "revision": 7,
+    "availability": "ready",
+    "error": null,
+    "body": {
+      "mode": "inline",
+      "value": {
+        "complete": true,
+        "endpoints": [
+          {
+            "id": "render-owned",
+            "name": "Synthetic render",
+            "capture": false,
+            "default": true,
+            "volume": 50,
+            "muted": false,
+            "capabilities": {
+              "volume": true,
+              "mute": true
+            }
+          },
+          {
+            "id": "capture-owned",
+            "name": "Synthetic capture",
+            "capture": true,
+            "default": false,
+            "volume": 50,
+            "muted": false,
+            "capabilities": {
+              "volume": false,
+              "mute": false
+            }
+          }
+        ],
+        "sessions": [
+          {
+            "id": "audio-owned",
+            "endpointId": "render-owned",
+            "pid": 0,
+            "name": "Synthetic session",
+            "application": "owned-fixture.exe",
+            "active": true,
+            "volume": 37,
+            "muted": false,
+            "singleProcess": true,
+            "capabilities": {
+              "volume": true,
+              "mute": true
+            }
+          }
+        ],
+        "errors": [],
+        "restoration": {
+          "attempted": 0,
+          "restored": 0,
+          "relinquished": 0,
+          "failed": 0
+        },
+        "runtime": {
+          "privateFixture": true,
+          "pid": 0,
+          "hwnd": "0",
+          "visible": false,
+          "hotkeys": 0,
+          "tray": false,
+          "soundStarted": false,
+          "notice": ""
+        }
+      }
+    }
+  },
+  "mediaState": {
+    "kind": "audio-system.state",
+    "topic": "media",
+    "generation": "synthetic-generation-1",
+    "revision": 11,
+    "availability": "ready",
+    "error": null,
+    "body": {
+      "mode": "inline",
+      "value": {
+        "sessions": [
+          {
+            "id": "media-owned",
+            "label": "Owned player",
+            "capabilities": {
+              "playPause": true,
+              "previous": false,
+              "next": false,
+              "seek": true,
+              "shuffle": false,
+              "repeat": false
+            }
+          },
+          {
+            "id": "media-unobserved",
+            "label": "Unobserved player",
+            "capabilities": null
+          }
+        ],
+        "selected": {
+          "id": "media-owned",
+          "source": "owned.player",
+          "title": "Synthetic track",
+          "artist": "Synthetic artist",
+          "album": "Synthetic album",
+          "shuffle": false,
+          "repeat": "none",
+          "playing": false,
+          "positionMs": 1000,
+          "durationMs": 3000,
+          "seekStartMs": 0,
+          "seekEndMs": 3000,
+          "capabilities": {
+            "playPause": true,
+            "previous": false,
+            "next": false,
+            "seek": true,
+            "shuffle": false,
+            "repeat": false
+          }
+        }
+      }
+    }
+  },
+  "snapshotRequest": {
+    "kind": "audio-system.snapshot.request",
+    "requestId": "snapshot-1"
+  },
+  "snapshotResult": {
+    "kind": "audio-system.snapshot.result",
+    "requestId": "snapshot-1",
+    "generation": "synthetic-generation-1",
+    "audio": {
+      "kind": "audio-system.state",
+      "topic": "audio",
+      "generation": "synthetic-generation-1",
+      "revision": 7,
+      "availability": "ready",
+      "error": null,
+      "body": {
+        "mode": "inline",
+        "value": {
+          "complete": true,
+          "endpoints": [
+            {
+              "id": "render-owned",
+              "name": "Synthetic render",
+              "capture": false,
+              "default": true,
+              "volume": 50,
+              "muted": false,
+              "capabilities": {
+                "volume": true,
+                "mute": true
+              }
+            },
+            {
+              "id": "capture-owned",
+              "name": "Synthetic capture",
+              "capture": true,
+              "default": false,
+              "volume": 50,
+              "muted": false,
+              "capabilities": {
+                "volume": false,
+                "mute": false
+              }
+            }
+          ],
+          "sessions": [
+            {
+              "id": "audio-owned",
+              "endpointId": "render-owned",
+              "pid": 0,
+              "name": "Synthetic session",
+              "application": "owned-fixture.exe",
+              "active": true,
+              "volume": 37,
+              "muted": false,
+              "singleProcess": true,
+              "capabilities": {
+                "volume": true,
+                "mute": true
+              }
+            }
+          ],
+          "errors": [],
+          "restoration": {
+            "attempted": 0,
+            "restored": 0,
+            "relinquished": 0,
+            "failed": 0
+          },
+          "runtime": {
+            "privateFixture": true,
+            "pid": 0,
+            "hwnd": "0",
+            "visible": false,
+            "hotkeys": 0,
+            "tray": false,
+            "soundStarted": false,
+            "notice": ""
+          }
+        }
+      }
+    },
+    "media": {
+      "kind": "audio-system.state",
+      "topic": "media",
+      "generation": "synthetic-generation-1",
+      "revision": 11,
+      "availability": "ready",
+      "error": null,
+      "body": {
+        "mode": "inline",
+        "value": {
+          "sessions": [
+            {
+              "id": "media-owned",
+              "label": "Owned player",
+              "capabilities": {
+                "playPause": true,
+                "previous": false,
+                "next": false,
+                "seek": true,
+                "shuffle": false,
+                "repeat": false
+              }
+            },
+            {
+              "id": "media-unobserved",
+              "label": "Unobserved player",
+              "capabilities": null
+            }
+          ],
+          "selected": {
+            "id": "media-owned",
+            "source": "owned.player",
+            "title": "Synthetic track",
+            "artist": "Synthetic artist",
+            "album": "Synthetic album",
+            "shuffle": false,
+            "repeat": "none",
+            "playing": false,
+            "positionMs": 1000,
+            "durationMs": 3000,
+            "seekStartMs": 0,
+            "seekEndMs": 3000,
+            "capabilities": {
+              "playPause": true,
+              "previous": false,
+              "next": false,
+              "seek": true,
+              "shuffle": false,
+              "repeat": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "commandRequest": {
+    "kind": "audio-system.command.request",
+    "requestId": "owned-request-1",
+    "generation": "synthetic-generation-1",
+    "revision": 7,
+    "timeoutMs": 1500,
+    "expectedSessionId": null,
+    "command": {
+      "kind": "audio.command",
+      "action": "sessionVolume",
+      "id": "audio-owned",
+      "volume": 25
+    }
+  },
+  "commandResult": {
+    "kind": "audio-system.command.result",
+    "requestId": "owned-request-1",
+    "generation": "synthetic-generation-1",
+    "ok": true,
+    "outcome": "acknowledged",
+    "error": null
+  },
+  "unknownResult": {
+    "kind": "audio-system.command.result",
+    "requestId": "owned-request-1",
+    "generation": "synthetic-generation-1",
+    "ok": false,
+    "outcome": "unknown",
+    "error": {
+      "code": "timeout",
+      "message": "Synthetic timeout after dispatch"
+    }
+  },
+  "readError": {
+    "kind": "audio-system.read.error",
+    "requestId": "read-1",
+    "generation": "synthetic-generation-1",
+    "error": {
+      "code": "inventory_expired",
+      "message": "Synthetic replaced revision"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+#pragma once
+inline constexpr const char* activity_manifest = R"mwmanifest(@MW_MANIFEST@)mwmanifest";

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "name": "@mywallpaper/sdk",
+  "version": "0.2.0",
+  "license": "MIT",
+  "sourceCheckout": "Read-only compiled public SDK reviewed for optional native consumer requirement and current settings/JSON budgets; exact bytes below. Shared native-provider route is being integrated separately.",
+  "files": {
+    "LICENSE": "d35c337e39c2d578f0347081fd0dc4ac0e620a4200ffcda5d40d2162f64c796e",
+    "dist/addon-schema/display.js": "e7533dd05788d5946f6a94b4810584eacbf688f389ab3471a1d1cc3274de46bb",
+    "dist/addon-schema/index.js": "36fb3187d61e5b16e759f6556cf9f5bb66afcce63e7dc6b7509ab712d2e53b1e",
+    "dist/addon-schema/releaseBudget.js": "7697c31c2b0a3f1b517d561695144aa5800883890734001d54aacc2c4ae22ec4",
+    "dist/addon-schema/sdk.js": "f435853d6a7e76b31cff041dd92577e48659ab5ce6c3efe1af94af58d6de7f2c",
+    "dist/addon-schema/settings.js": "64775abc386b6266fd0ddf33821d644046b1f11cea556e627620db407f41006a",
+    "dist/generated/addon-manifest-validator.js": "48a0f4d0a8053a2c94f9d832f95d0b70bcf4ada1e1853ba7d32facbb39d0151d",
+    "dist/generated/runtime.js": "429ef6e5d2c29bce8b103ea88f1410a3ef97471c996058d92a20bc446238d8ab",
+    "dist/json-value.js": "3ea9b2812d9812ec46e8378dcaf2f8ec540d1e19388a65584f446b29c6c3aeca",
+    "package.json": "fce4e4cc5c99a1fe3f5c26ad15b843512ca90b15a318d4e20123024585b0c99a"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source": "A18 audio-system contract",
+  "commit": "44a2e0f642bf0100e9333300a2240ea653d90a84",
+  "contract": "a18/audio-system",
+  "version": 1,
+  "providerAlias": "audio",
+  "files": {
+    "LICENSE.MIT": "c9ed8b91172881ba920a3f1bda959f74284d71c3e22b367e70e657789feec939",
+    "schema.json": "09c734f8e97f0ea50107b9fb02cb1d866d1651a59560c6786d8db879237be3f1",
+    "examples.json": "518c73d19afb43f0f09abdc58888e1c11b205fb9f56df6b88a59ded5c2bfaaa2",
+    "README.md": "1612a4fd7a6a84975a37525a9ee5c873d551d1b3312a9533919d6a62e28d9cbf"
+  }
+}
